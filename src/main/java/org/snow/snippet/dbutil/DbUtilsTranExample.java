@@ -16,7 +16,7 @@ public class DbUtilsTranExample {
 	/* 数据连接 */
 	public static Connection connection = null;
 	
-	/* logger*/
+	/* logger */
 	public static Logger LOGGER = LogManager.getLogger(DbUtilsTranExample.class);
 	
 	public static void main(String[] arg) throws SQLException {
@@ -24,12 +24,10 @@ public class DbUtilsTranExample {
 		transfer("A","B",100);
 	}
 
-	public static void transfer(String sourceName,String targetName,float money) throws SQLException{
+	public static void transfer(String sourceName, String targetName, float money) throws SQLException{
 	    
 		try {
 	        connection = dataSource.getConnection();
-	        
-	        // 开启事务
 	        connection.setAutoCommit(false);
 	        
 			// 在创建QueryRunner对象时，不传递数据源给它，是为了保证这两条SQL在同一个事务中进行，
