@@ -26,7 +26,7 @@ public class DbUtilsTranExample {
 		try {
 	        conn = ds.getConnection();
 	        
-	        // 设置开启事务
+	        // 开启事务
 	        conn.setAutoCommit(false);
 	        
 			// 在创建QueryRunner对象时，不传递数据源给它，是为了保证这两条SQL在同一个事务中进行，
