@@ -12,9 +12,9 @@ import org.apache.logging.log4j.Logger;
 
 public class DbUtilsTranExample {
 	
-	public static DataSource ds 	= null;
-	public static Connection conn 	= null;
-	public static Logger LOG 		= LogManager.getLogger(DbUtilsTranExample.class);
+	public static DataSource ds = null;
+	public static Connection conn = null;
+	public static Logger LOG = LogManager.getLogger(DbUtilsTranExample.class);
 	
 	public static void main(String[] arg) throws SQLException {
 		ds = setupDataSource();
@@ -47,8 +47,7 @@ public class DbUtilsTranExample {
 	        // Sql正常执行之后就提交事务
 	        conn.commit();
 	    }catch (Exception e) {
-	        
-	    	LOG.error("dbutils tran exception",e);
+	        LOG.error("dbutils tran exception",e);
 	    	
 	        if(conn!=null){
 	            //出现异常之后就回滚事务
