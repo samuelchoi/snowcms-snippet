@@ -2,11 +2,11 @@ package org.snow.snippet.dbutil;
 
 public class User {
 
-	int id;
-	String name;
-	String password;
-	String email;
-	String birthday;
+	private int id;
+	private String name;	
+	private String password;
+	private String email;
+	private String birthday;
 
 	public int getId() {
 		return id;

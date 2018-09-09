@@ -15,13 +15,21 @@ public class DbUtilsTranExample {
 	public static DataSource ds = null;
 	public static Connection conn = null;
 	public static Logger LOG = LogManager.getLogger(DbUtilsTranExample.class);
+	/* 数据源 */
+	public static DataSource dataSource = null;
+	
+	/* 数据连接 */
+	public static Connection connection = null;
+	
+	/* logger */
+	public static Logger LOGGER = LogManager.getLogger(DbUtilsTranExample.class);
 	
 	public static void main(String[] arg) throws SQLException {
-		ds = setupDataSource();
+		dataSource = setupDataSource();
 		transfer("A","B",100);
 	}
 
-	public static void transfer(String sourceName,String targetName,float money) throws SQLException{
+	public static void transfer(String sourceName, String targetName, float money) throws SQLException{
 	    
 		try {
 	        conn = ds.getConnection();
@@ -46,8 +54,8 @@ public class DbUtilsTranExample {
 	        
 	        // Sql正常执行之后就提交事务
 	        conn.commit();
-	    }catch (Exception e) {
-	        LOG.error("dbutils tran exception",e);
+	    } catch (Exception e) {
+	        LOGGER.error("dbutils tran exception",e);
 	    	
 	        if(conn!=null){
 	            //出现异常之后就回滚事务
