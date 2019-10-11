@@ -26,6 +26,9 @@ public class Log4jExample {
 
         // new feature
         LOGGER.debug("git test 2");
+
+        // new feature
+        LOGGER.debug("git test 3");
 	}
 
 	private static Object doSomeCalculation() {
