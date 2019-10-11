@@ -20,6 +20,9 @@ public class Log4jExample {
         LOGGER.error("Error Message!");
         LOGGER.fatal("Fatal Message!");
         LOGGER.fatal("Fatal Message!2");
+
+        // new feature
+        LOGGER.debug("git test");
 	}
 
 	private static Object doSomeCalculation() {
