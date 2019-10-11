@@ -22,7 +22,7 @@ public class Log4jExample {
         LOGGER.fatal("Fatal Message!2");
 
         // new feature
-        LOGGER.debug("git test");
+        // LOGGER.debug("git test");
 
         // new feature
         LOGGER.debug("git test 2");
