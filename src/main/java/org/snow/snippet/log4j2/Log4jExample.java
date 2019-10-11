@@ -19,6 +19,7 @@ public class Log4jExample {
         LOGGER.warn("Warn Message!");
         LOGGER.error("Error Message!");
         LOGGER.fatal("Fatal Message!");
+        LOGGER.fatal("Fatal Message!2");
 	}
 
 	private static Object doSomeCalculation() {
