@@ -35,6 +35,12 @@ public class Log4jExample {
 
         // new feature
         LOGGER.debug("git test 5");
+
+        // new feature
+        LOGGER.debug("git test 6");
+
+        // new feature
+        LOGGER.debug("git test 7");
 	}
 
 	private static Object doSomeCalculation() {
