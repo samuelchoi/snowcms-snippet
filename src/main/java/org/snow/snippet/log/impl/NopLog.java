@@ -3,14 +3,18 @@ package org.snow.snippet.log.impl;
 import org.snow.snippet.log.Log;
 import org.snow.snippet.log.LogAdapter;
 
+/**
+ * No log
+ */
 public class NopLog implements Log, LogAdapter {
-    public Log getLogger(String className) {
-        return NOP;
-    }
 
     public static final NopLog NOP = new NopLog();
 
     protected NopLog() {
+    }
+
+    public Log getLogger(String className) {
+        return NOP;
     }
 
     public void warn(Object message, Throwable t) {}

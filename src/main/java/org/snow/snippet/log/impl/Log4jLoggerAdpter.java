@@ -7,7 +7,7 @@ import org.snow.snippet.log.Log;
 import org.snow.snippet.log.LogAdapter;
 
 /**
- * Logger 适配器
+ * Log4j 适配器
  */
 public class Log4jLoggerAdpter implements LogAdapter {
 

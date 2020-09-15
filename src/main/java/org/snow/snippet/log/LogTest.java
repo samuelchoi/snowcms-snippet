@@ -4,10 +4,13 @@ import org.snow.snippet.log.impl.Log4jLoggerAdpter;
 import org.snow.snippet.log.impl.SystemLoggerAdpter;
 import org.snow.snippet.log4j.Log4jExample;
 
+/**
+ * Log 测试类
+ */
 public class LogTest {
 
     public static void main(String[] args) {
-        // log4j
+        // log4j log
         // LogFactory.setAdapter(new Log4jLoggerAdpter());
         // Log LOGGER = LogFactory.getLogger(Log4jExample.class);
 

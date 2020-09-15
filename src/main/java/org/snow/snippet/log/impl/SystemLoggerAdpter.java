@@ -7,12 +7,18 @@ import org.snow.snippet.log.LogAdapter;
 import java.text.DateFormat;
 import java.util.Date;
 
+/**
+ * System log 适配器
+ */
 public class SystemLoggerAdpter implements LogAdapter {
 
     public Log getLogger(String className) {
         return new SystemLogger();
     }
 
+    /**
+     * System log 适配器
+     */
     static class SystemLogger extends AbstractLogger {
 
         private SystemLogger(){
@@ -20,6 +26,7 @@ public class SystemLoggerAdpter implements LogAdapter {
             isDebugEnabled = true;
         }
 
+        /* System out 封装 */
         private void systemPrintOut(String level, Object message, Throwable t) {
             System.out.printf("[%s][%s][%s] %s\n", getCurrentDate(), level, Thread.currentThread().getName(), message);
             if(t != null){
@@ -27,6 +34,7 @@ public class SystemLoggerAdpter implements LogAdapter {
             }
         }
 
+        /* System error 封装 */
         private  void systemPrintError(String level, Object message, Throwable t) {
             System.err.printf("[%s][%s][%s] %s\n", getCurrentDate(), level, Thread.currentThread().getName(), message);
             if(t != null){
@@ -34,12 +42,13 @@ public class SystemLoggerAdpter implements LogAdapter {
             }
         }
 
+        /* 获取当前时间 */
         private String getCurrentDate() {
-            // get current date
             DateFormat df3 = DateFormat.getDateTimeInstance();
             return df3.format(new Date());
         }
 
+        /* log 分发方法，转发为具体方法 */
         protected void log(int level, Object message, Throwable tx) {
             switch (level) {
                 case LEVEL_FATAL:
