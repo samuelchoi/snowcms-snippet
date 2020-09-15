@@ -2,8 +2,6 @@ package org.snow.snippet.log;
 
 public interface Log {
 
-    Log setTag(String tag);
-
     boolean isFatalEnabled();
 
     void fatal(Object message);

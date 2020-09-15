@@ -18,12 +18,16 @@ public final class LogFactory {
     }
 
     public static void init() {
-        adapter = new Log4jLoggerAdpter();
+        try {
+            adapter = new Log4jLoggerAdpter();
+        } catch (Exception ex) {
+            // no to doing
+        } finally {
+            adapter = NopLog.NOP;
+        }
     }
 
     public static void setAdapter(LogAdapter adapter) {
         LogFactory.adapter = adapter;
     }
-
-    public static LogAdapter NOP_ADAPTER = NopLog.NOP;
 }

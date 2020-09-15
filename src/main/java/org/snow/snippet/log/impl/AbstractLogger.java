@@ -3,6 +3,9 @@ package org.snow.snippet.log.impl;
 import org.snow.snippet.log.Log;
 import java.util.Arrays;
 
+/**
+ * Logger 基对象
+ */
 public abstract class AbstractLogger implements Log {
 
     protected boolean isFatalEnabled = true;
@@ -28,7 +31,6 @@ public abstract class AbstractLogger implements Log {
     }
 
     public static int level(String level) {
-
         if (null != level) {
             if ("F".equals(level) || "fatal".equals(level))
                 return LEVEL_FATAL;
@@ -46,42 +48,42 @@ public abstract class AbstractLogger implements Log {
         return LEVEL_INFO;
     }
 
+    /**
+     * 扩展方法
+     */
     protected abstract void log(int level, Object message, Throwable tx);
 
     protected void log(int level, LogEntity logEntity) {
         log(level, logEntity.message, logEntity.throwable);
     }
 
+    /**
+     * 封闭 logEntity 对象
+     */
     private LogEntity makeInfo(Object log, Object... args) {
 
-        if (log == null)
-            return LOG_INFO_NULL;
-
+        if (log == null)  return LOG_INFO_NULL;
+        
         try {
             LogEntity info = new LogEntity();
 
             if (log instanceof Throwable) {
                 info.throwable = (Throwable) log;
                 info.message = info.throwable.getMessage();
-
             } else if (args == null || args.length == 0) {
                 info.message = log.toString();
-
             } else {
                 info.message = String.format(log.toString(), args);
                 if (args[args.length - 1] instanceof Throwable) {
                     info.throwable = (Throwable) args[args.length - 1];
                 }
             }
-
             return info;
 
         } catch (Throwable e) {
-
             if (isWarnEnabled()) {
                 warn("String format fail in log , fmt = " + log + " , args = " + Arrays.toString(args), e);
             }
-
             return LOG_INFO_ERROR;
         }
     }
@@ -139,12 +141,5 @@ public abstract class AbstractLogger implements Log {
 
     public boolean isWarnEnabled() {
         return isWarnEnabled;
-    }
-
-    protected String tag = "";
-
-    public Log setTag(String tag) {
-        this.tag = tag;
-        return this;
     }
 }

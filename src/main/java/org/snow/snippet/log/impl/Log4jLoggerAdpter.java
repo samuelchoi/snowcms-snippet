@@ -2,19 +2,25 @@ package org.snow.snippet.log.impl;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
-
+import org.apache.logging.log4j.Logger;
 import org.snow.snippet.log.Log;
 import org.snow.snippet.log.LogAdapter;
 
+/**
+ * Logger 适配器
+ */
 public class Log4jLoggerAdpter implements LogAdapter {
 
     public Log getLogger(String className) {
         return new Log4jLogger(className);
     }
 
+    /**
+     * Log4j 适配器实现
+     */
     static class Log4jLogger extends AbstractLogger {
 
-        private org.apache.logging.log4j.Logger logger;
+        private Logger logger;
 
         private static boolean hasTrace;
 
