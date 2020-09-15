@@ -13,13 +13,9 @@ public class NopLog implements Log, LogAdapter {
     protected NopLog() {
     }
 
-    public void warnf(String fmt, Object... args) {}
-
     public void warn(Object message, Throwable t) {}
 
     public void warn(Object message) {}
-
-    public void tracef(String fmt, Object... args) {}
 
     public void trace(Object message, Throwable t) {}
 
@@ -49,25 +45,17 @@ public class NopLog implements Log, LogAdapter {
         return false;
     }
 
-    public void infof(String fmt, Object... args) {}
-
     public void info(Object message, Throwable t) {}
 
     public void info(Object message) {}
-
-    public void fatalf(String fmt, Object... args) {}
 
     public void fatal(Object message, Throwable t) {}
 
     public void fatal(Object message) {}
 
-    public void errorf(String fmt, Object... args) {}
-
     public void error(Object message, Throwable t) {}
 
     public void error(Object message) {}
-
-    public void debugf(String fmt, Object... args) {}
 
     public void debug(Object message, Throwable t) {}
 
